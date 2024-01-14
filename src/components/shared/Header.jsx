@@ -17,6 +17,16 @@ const Header = () => {
     console.log('toggled');
   };
 
+
+
+
+  const handleLogout = () => {
+    // Clear local storage and redirect to the home page
+    localStorage.clear();
+    setIsAuth(false);
+    history.push('/');
+  };
+
   return (
     <div className="shadow w-full z-50 px-5">
       <div className="container items-center py-4 flex justify-between">
@@ -45,7 +55,7 @@ const Header = () => {
 
         <div className="hidden font-semibold text-sm md:flex xl:text-base">
           {isAuth ? (
-            <button className="uppercase">Logout</button>
+            <button onClick={handleLogout} className="uppercase">Logout</button>
           ) : (
             <div className="flex gap-2 items-center">
               {/* <Link to={'/register'}>
