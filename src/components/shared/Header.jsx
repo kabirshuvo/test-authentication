@@ -1,9 +1,10 @@
 import { AlignJustify, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import { NavLinks } from '../../utils/HomePageData';
 
 const Header = () => {
+  const history = useHistory();
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
     if (localStorage.getItem('access_token') !== null) {

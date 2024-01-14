@@ -1,4 +1,3 @@
-import React from 'react';
 import Contact from '../../components/others/home-components/Contact';
 import Hero from '../../components/others/home-components/Hero';
 import Projects from '../../components/others/home-components/Projects';

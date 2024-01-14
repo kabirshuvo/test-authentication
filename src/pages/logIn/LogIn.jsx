@@ -1,6 +1,5 @@
 // Login.js
-import 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { login } from './auth';
 
 const Login = () => {
@@ -31,7 +30,7 @@ const Login = () => {
         value={credentials.password}
         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
       />
-      <button type="submit" >Login.py</button>
+      <button onClick={handleLogin} type="submit" >Login.py</button>
     </div>
   );
 };
