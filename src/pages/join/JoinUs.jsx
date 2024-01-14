@@ -45,9 +45,12 @@ const JoinUs = () => {
   const register = async (e) => {
     e.preventDefault();
     const newUser = {
-      name: name,
+      username: name,
       email: registerEmail,
       password: registerPassword,
+      is_client:false, 
+      is_job_seeker:false, 
+      password2:registerPassword
     };
 
     try {
