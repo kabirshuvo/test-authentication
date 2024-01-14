@@ -1,10 +1,15 @@
 import { AlignJustify, X } from 'lucide-react';
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NavLinks } from '../../utils/HomePageData';
 
 const Header = () => {
-  const user = false;
+  const [isAuth, setIsAuth] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem('access_token') !== null) {
+       setIsAuth(true); 
+     }
+   }, [isAuth]);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const toggleMobileNav = () => {
@@ -39,7 +44,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden font-semibold text-sm md:flex xl:text-base">
-          {user ? (
+          {isAuth ? (
             <button className="uppercase">Logout</button>
           ) : (
             <div className="flex gap-2 items-center">
