@@ -1,5 +1,4 @@
-// auth.js
-import api from './api';
+import api, { setTokens, clearTokens } from './api';
 
 export const register = async (userData) => {
   try {
@@ -13,6 +12,10 @@ export const register = async (userData) => {
 export const login = async (credentials) => {
   try {
     const response = await api.post('/login/', credentials);
+
+    // Set tokens in local storage upon successful login
+    setTokens(response.data.access, response.data.refresh);
+
     return response.data;
   } catch (error) {
     throw error;
@@ -53,4 +56,12 @@ export const getUserProfile = async () => {
   } catch (error) {
     throw error;
   }
+};
+
+// Function to handle user logout
+export const logout = () => {
+  // Clear tokens from local storage upon logout
+  clearTokens();
+
+  // Additional logic for redirecting or any cleanup actions upon logout
 };
